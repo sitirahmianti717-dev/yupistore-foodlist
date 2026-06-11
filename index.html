@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>YupiStore Food List</title>
+</head>
+<body>
+
+<h1>YupiStore Food List</h1>
+
+<p>Chocolate Cake</p>
+<input type="number" id="cake" value="0">
+
+<p>Pizza</p>
+<input type="number" id="pizza" value="0">
+
+<br><br>
+
+<button onclick="buatList()">Generate List</button>
+
+<pre id="hasil"></pre>
+
+<script>
+function buatList(){
+
+let hasil="";
+
+let cake=document.getElementById("cake").value;
+let pizza=document.getElementById("pizza").value;
+
+if(cake>0){
+hasil += "Chocolate Cake : "+cake+"\n";
+}
+
+if(pizza>0){
+hasil += "Pizza : "+pizza+"\n";
+}
+
+document.getElementById("hasil").innerText=hasil;
+}
+</script>
+
+</body>
+</html>

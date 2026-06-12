@@ -7,7 +7,7 @@
 
 <style>
 body{
-    font-family: Arial, sans-serif;
+    font-family:Arial,sans-serif;
     background:#f5f5f5;
     margin:0;
     padding:15px;
@@ -21,42 +21,24 @@ body{
     margin-bottom:15px;
 }
 
-.stats{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-    margin-bottom:15px;
-}
-
-.box{
-    background:white;
-    padding:10px;
-    border-radius:12px;
-    text-align:center;
-}
-
-.button{
-    background:white;
-    padding:12px;
-    border-radius:12px;
-    text-align:center;
-    margin-bottom:10px;
-    font-weight:bold;
-}
-
-.machine{
+.card{
     background:white;
     border-radius:15px;
-    padding:15px;
+    padding:12px;
+    margin-bottom:12px;
+    display:flex;
+    gap:12px;
+    align-items:center;
 }
 
-.food{
-    border-bottom:1px solid #ddd;
-    padding:12px 0;
+.card img{
+    width:70px;
+    height:70px;
+    object-fit:contain;
 }
 
-.food:last-child{
-    border-bottom:none;
+.info{
+    flex:1;
 }
 
 .name{
@@ -64,14 +46,31 @@ body{
     font-weight:bold;
 }
 
-.info{
-    color:#666;
-    margin-top:4px;
+.stock{
+    width:70px;
 }
 
-.counter{
+.controls{
     margin-top:8px;
-    font-weight:bold;
+}
+
+button{
+    width:32px;
+    height:32px;
+}
+
+.stats{
+    background:white;
+    border-radius:15px;
+    padding:15px;
+    margin-bottom:15px;
+}
+
+#listPilihan{
+    background:white;
+    border-radius:15px;
+    padding:15px;
+    margin-top:15px;
 }
 </style>
 </head>
@@ -82,131 +81,99 @@ body{
 <h1>🍂 YupiStore Food Manager 🍂</h1>
 </div>
 
-<div class="button">📋 Food List</div>
-<div class="button">🔄 Reset</div>
-
 <div class="stats">
-<div class="box">
-<b>Total Food</b><br>14
+<b>Total Food:</b> 2<br>
+<b>Level Tertinggi:</b> 120<br>
+<b>Total Dipilih:</b> <span id="totalDipilih">0</span>
 </div>
 
-<div class="box">
-<b>Level Tertinggi</b><br>104
-</div>
-
-<div class="box">
-<b>Total Dipilih</b><br>0
-</div>
-
-<div class="box">
-<b>Mesin</b><br>Bakery
-</div>
-</div>
-
-<div class="machine">
-<img src="images/Bread.webp" width="80">
 <h2>🏭 Bakery</h2>
-<p>⭐ Level 2</p>
 
-<div class="food">
+<div class="card">
+<img src="images/Bread.webp">
+
+<div class="info">
 <div class="name">Bread</div>
-<div class="info">Level 2</div>
-<div class="info">Stock 200</div>
-<div class="counter">(-) Jumlah Pilih (+)</div>
+Level 2<br>
+Stock:
+<input class="stock" id="stock_bread" value="200">
+
+<div class="controls">
+<button onclick="ubah('bread',-1)">-</button>
+<span id="bread">0</span>
+<button onclick="ubah('bread',1)">+</button>
 </div>
 
-<div class="food">
+</div>
+</div>
+
+<div class="card">
+<img src="images/Corn_Bread.webp">
+
+<div class="info">
 <div class="name">Corn Bread</div>
-<div class="info">Level 7</div>
-<div class="info">Stock 200</div>
-<div class="counter">(-) Jumlah Pilih (+)</div>
-</div>
+Level 7<br>
+Stock:
+<input class="stock" id="stock_corn" value="200">
 
-<div class="food">
-<div class="name">Cookie</div>
-<div class="info">Level 10</div>
-<div class="info">Stock 200</div>
-<div class="counter">(-) Jumlah Pilih (+)</div>
-</div>
-
-<div class="food">
-<div class="name">Raspberry Muffin</div>
-<div class="info">Level 19</div>
-<div class="info">Stock 30</div>
-<div class="counter">(-) Jumlah Pilih (+)</div>
-</div>
-
-<div class="food">
-<div class="name">Blackberry Muffin</div>
-<div class="info">Level 26</div>
-<div class="info">Stock 30</div>
-<div class="counter">(-) Jumlah Pilih (+)</div>
-</div>
-
-<div class="food">
-<div class="name">Pizza</div>
-<div class="info">Level 33</div>
-<div class="info">Stock 30</div>
-<div class="counter">(-) Jumlah Pilih (+)</div>
-</div>
-
-<div class="food">
-<div class="name">Blueberry Muffin</div>
-<div class="info">Level 33</div>
-<div class="info">Stock 30</div>
-<div class="counter">(-) Jumlah Pilih (+)</div>
-</div>
-
-<div class="food">
-<div class="name">Spicy Pizza</div>
-<div class="info">Level 37</div>
-<div class="info">Stock 30</div>
-<div class="counter">(-) Jumlah Pilih (+)</div>
-</div>
-
-<div class="food">
-<div class="name">Potato Bread</div>
-<div class="info">Level 39</div>
-<div class="info">Stock 30</div>
-<div class="counter">(-) Jumlah Pilih (+)</div>
-</div>
-
-<div class="food">
-<div class="name">Frutti di Mare Pizza</div>
-<div class="info">Level 45</div>
-<div class="info">Stock 30</div>
-<div class="counter">(-) Jumlah Pilih (+)</div>
-</div>
-
-<div class="food">
-<div class="name">Gingerbread Cookie</div>
-<div class="info">Level 86</div>
-<div class="info">Stock 3</div>
-<div class="counter">(-) Jumlah Pilih (+)</div>
-</div>
-
-<div class="food">
-<div class="name">Banana Bread</div>
-<div class="info">Level 91</div>
-<div class="info">Stock 30</div>
-<div class="counter">(-) Jumlah Pilih (+)</div>
-</div>
-
-<div class="food">
-<div class="name">Macaroon</div>
-<div class="info">Level 101</div>
-<div class="info">Stock 30</div>
-<div class="counter">(-) Jumlah Pilih (+)</div>
-</div>
-
-<div class="food">
-<div class="name">Pineapple Coconut Bars</div>
-<div class="info">Level 120</div>
-<div class="info">Stock 0</div>
-<div class="counter">(-) Jumlah Pilih (+)</div>
+<div class="controls">
+<button onclick="ubah('corn',-1)">-</button>
+<span id="corn">0</span>
+<button onclick="ubah('corn',1)">+</button>
 </div>
 
 </div>
+</div>
+
+<div id="listPilihan">
+<h3>📝 List Pilihan</h3>
+<div id="list"></div>
+</div>
+
+<script>
+
+let data = {
+bread:0,
+corn:0
+};
+
+function ubah(item,nilai){
+
+data[item]+=nilai;
+
+if(data[item]<0){
+data[item]=0;
+}
+
+document.getElementById(item).innerText=data[item];
+
+update();
+}
+
+function update(){
+
+let total=0;
+let hasil=[];
+
+for(let item in data){
+
+total+=data[item];
+
+if(data[item]>0){
+
+let nama=item==="bread"
+? "Bread"
+: "Corn Bread";
+
+hasil.push(nama+" x"+data[item]);
+}
+}
+
+document.getElementById("totalDipilih").innerText=total;
+document.getElementById("list").innerHTML=hasil.join("<br>");
+}
+
+</script>
 
 </body>
-  </html>
+</html>

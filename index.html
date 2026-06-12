@@ -1,93 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-<title>YupiStore Food List</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YupiStore Food Manager</title>
+
 <style>
 body{
 font-family:Arial,sans-serif;
-padding:20px;
 background:#f5f5f5;
+padding:15px;
 }
-table{
-width:100%;
-border-collapse:collapse;
+
+h1{
+text-align:center;
+}
+
+.card{
 background:white;
+padding:12px;
+margin-bottom:10px;
+border-radius:10px;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
-th,td{
-border:1px solid #ddd;
-padding:8px;
-text-align:left;
+
+.food{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin:8px 0;
 }
-th{
+
+input{
+width:80px;
+padding:5px;
+}
+
+.total{
+font-size:20px;
+font-weight:bold;
+text-align:center;
 background:#4CAF50;
 color:white;
-}
-input{
-width:70px;
+padding:10px;
+border-radius:10px;
+margin-bottom:15px;
 }
 </style>
 </head>
 
 <body>
 
-<h1>YupiStore Food List</h1>
+<h1>🌾 YupiStore Food Manager</h1>
 
-<table>
-<tr>
-<th>Mesin</th>
-<th>Food</th>
-<th>Level</th>
-<th>Stok</th>
-</tr>
+<div class="total">
+Total Stok: <span id="total">0</span>
+</div>
 
-<tr>
-<td>Bakery</td>
-<td>Roti Gandum</td>
-<td>1</td>
-<td><input type="number" value="0"></td>
-</tr>
+<div class="card">
+<h2>🏭 Bakery</h2>
 
-<tr>
-<td>Bakery</td>
-<td>Roti Jagung</td>
-<td>7</td>
-<td><input type="number" value="0"></td>
-</tr>
+<div class="food">
+<span>Bread (Lv 1)</span>
+<input type="number" value="0" oninput="hitung()">
+</div>
 
-<tr>
-<td>Bakery</td>
-<td>Pizza</td>
-<td>33</td>
-<td><input type="number" value="0"></td>
-</tr>
+<div class="food">
+<span>Corn Bread (Lv 7)</span>
+<input type="number" value="0" oninput="hitung()">
+</div>
 
-<tr>
-<td>Bakery</td>
-<td>Muffin Blueberry</td>
-<td>27</td>
-<td><input type="number" value="0"></td>
-</tr>
+<div class="food">
+<span>Cookie (Lv 10)</span>
+<input type="number" value="0" oninput="hitung()">
+</div>
+</div>
 
-</table>
+<div class="card">
+<h2>🏭 Popcorn Pot</h2>
 
-<h2>Daftar Restock Customer</h2>
+<div class="food">
+<span>Popcorn (Lv 8)</span>
+<input type="number" value="0" oninput="hitung()">
+</div>
 
-<table>
-<tr>
-<th>Nama</th>
-<th>Pesanan</th>
-<th>Jumlah</th>
-<th>Status</th>
-</tr>
+<div class="food">
+<span>Buttered Popcorn (Lv 9)</span>
+<input type="number" value="0" oninput="hitung()">
+</div>
+</div>
 
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>Belum</td>
-</tr>
+<div class="card">
+<h2>🏭 Pie Oven</h2>
 
-</table>
+<div class="food">
+<span>Carrot Pie (Lv 14)</span>
+<input type="number" value="0" oninput="hitung()">
+</div>
+
+<div class="food">
+<span>Bacon Pie (Lv 18)</span>
+<input type="number" value="0" oninput="hitung()">
+</div>
+</div>
+
+<div class="card">
+<h2>🏭 Cake Oven</h2>
+
+<div class="food">
+<span>Cream Cake (Lv 15)</span>
+<input type="number" value="0" oninput="hitung()">
+</div>
+
+<div class="food">
+<span>Brown Sugar Cupcake (Lv 16)</span>
+<input type="number" value="0" oninput="hitung()">
+</div>
+</div>
+
+<script>
+function hitung(){
+let total = 0;
+
+document.querySelectorAll("input").forEach(item=>{
+total += Number(item.value);
+});
+
+document.getElementById("total").innerText = total;
+}
+</script>
 
 </body>
 </html>

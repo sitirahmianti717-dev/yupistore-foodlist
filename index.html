@@ -15,12 +15,11 @@ body{
 
 .header{
     text-align:center;
-    background:white;
-    padding:15px;
+    background:#dbe8d3;
+    padding:10px;
     border-radius:15px;
-    margin-bottom:15px;
+    margin-bottom:10px;
 }
-
 .card{
     background:white;
     border-radius:15px;
@@ -74,8 +73,10 @@ body{
 .stats{
     background:white;
     border-radius:15px;
-    padding:15px;
-    margin-bottom:15px;
+    padding:12px;
+    margin-bottom:12px;
+    line-height:1.8;
+    font-weight:bold;
 }
 
 #listPilihan{
@@ -123,13 +124,13 @@ body{
 <body>
 
 <div class="header">
-<h1>🍂 YupiStore Food Manager 🍂</h1>
+<h1 style="font-size:24px;">🍂 YupiStore Food Manager 🍂</h1>
 </div>
 
 <div class="stats">
-<b>Total Food:</b> 2<br>
-<b>Level Tertinggi:</b> 120<br>
-<b>Total Dipilih:</b> <span id="totalDipilih">0</span>
+📦 Total Food: 3<br>
+⭐ Level Tertinggi: 120<br>
+🛒 Total Dipilih: <span id="totalDipilih">0</span>
 </div>
 
 <div style="text-align:center; margin-bottom:15px;">
@@ -175,9 +176,25 @@ body{
 
 </div>
 
+<div class="card">
+
+<img src="images/Corn_Bread.webp">
+
+<div class="info">
+
+<div class="name">Corn Bread</div>
+
+<div class="machine">Bakery</div>
+
+<div class="row">
+
+<div class="level">
+⭐ Level 7
+</div>
+
 <div class="controls">
 <button onclick="ubah('corn',-10)">-10</button>
-<span id="bread">0</span>
+<span id="corn">0</span>
 <button onclick="ubah('corn',10)">+10</button>
 </div>
 
@@ -190,8 +207,24 @@ body{
 
 </div>
 
-</div>  
+</div>
     
+<div class="card">
+
+<img src="images/Cookie.webp">
+
+<div class="info">
+
+<div class="name">Cookie</div>
+
+<div class="machine">Bakery</div>
+
+<div class="row">
+
+<div class="level">
+⭐ Level 10
+</div>
+
 <div class="controls">
 <button onclick="ubah('cookie',-10)">-10</button>
 <span id="cookie">0</span>
@@ -202,7 +235,7 @@ body{
 
 <div class="stock-row">
 📦 Stock:
-<input class="stock" id="stock_bread" value="200">
+<input class="stock" id="stock_cookie" value="200">
 </div>
 
 </div>
@@ -246,11 +279,11 @@ total+=data[item];
 
 if(data[item]>0){
 
-let namaMap = {
-bread:"Bread",
-corn:"Corn Bread",
-cookie:"Cookie"
-};
+let nama = {
+    bread:"Bread",
+    corn:"Corn Bread",
+    cookie:"Cookie"
+}[item];
 
 let nama = namaMap[item];
 

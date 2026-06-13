@@ -1,179 +1,100 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>YupiStore Food Manager</title>
-
-<style>
-body{
-    font-family:Arial,sans-serif;
-    background:#f5f5f5;
-    margin:0;
-    padding:15px;
+const foods = [
+{
+  nama: "Bread",
+  mesin: "Bakery",
+  level: 2,
+  stock: 200,
+  gambar: "images/Bread.webp"
+},
+{
+  nama: "Corn Bread",
+  mesin: "Bakery",
+  level: 7,
+  stock: 200,
+  gambar: "images/Corn_Bread.webp"
+},
+{
+  nama: "Cookie",
+  mesin: "Bakery",
+  level: 10,
+  stock: 200,
+  gambar: "images/Cookie.webp"
+},
+{
+  nama: "Raspberry Muffin",
+  mesin: "Bakery",
+  level: 19,
+  stock: 30,
+  gambar: "images/Raspberry_Muffin.webp"
+},
+{
+  nama: "Blackberry Muffin",
+  mesin: "Bakery",
+  level: 26,
+  stock: 30,
+  gambar: "images/Blackberry_Muffin.webp"
+},
+{
+  nama: "Pizza",
+  mesin: "Bakery",
+  level: 33,
+  stock: 30,
+  gambar: "images/Pizza.webp"
+},
+{
+  nama: "Blueberry Muffin",
+  mesin: "Bakery",
+  level: 33,
+  stock: 30,
+  gambar: "images/Blueberry_Muffin.webp"
+},
+{
+  nama: "Spicy Pizza",
+  mesin: "Bakery",
+  level: 37,
+  stock: 30,
+  gambar: "images/Spicy_Pizza.webp"
+},
+{
+  nama: "Potato Bread",
+  mesin: "Bakery",
+  level: 39,
+  stock: 30,
+  gambar: "images/Potato_Bread.webp"
+},
+{
+  nama: "Frutti di Mare Pizza",
+  mesin: "Bakery",
+  level: 45,
+  stock: 30,
+  gambar: "images/Frutti_di_Mare_Pizza.webp"
+},
+{
+  nama: "Gingerbread Cookie",
+  mesin: "Bakery",
+  level: 86,
+  stock: 3,
+  gambar: "images/Gingerbread_Cookie.webp"
+},
+{
+  nama: "Banana Bread",
+  mesin: "Bakery",
+  level: 91,
+  stock: 30,
+  gambar: "images/Banana_Bread.webp"
+},
+{
+  nama: "Macaroon",
+  mesin: "Bakery",
+  level: 101,
+  stock: 30,
+  gambar: "images/Macaroon.webp"
+},
+{
+  nama: "Pineapple Coconut Bars",
+  mesin: "Bakery",
+  level: 120,
+  stock: 0,
+  gambar: "images/Pineapple_Coconut_Bars.webp"
 }
-
-.header{
-    text-align:center;
-    background:white;
-    padding:15px;
-    border-radius:15px;
-    margin-bottom:15px;
-}
-
-.card{
-    background:white;
-    border-radius:15px;
-    padding:12px;
-    margin-bottom:12px;
-    display:flex;
-    gap:12px;
-    align-items:center;
-}
-
-.card img{
-    width:70px;
-    height:70px;
-    object-fit:contain;
-}
-
-.info{
-    flex:1;
-}
-
-.name{
-    font-size:18px;
-    font-weight:bold;
-}
-
-.stock{
-    width:70px;
-}
-
-.controls{
-    margin-top:8px;
-}
-
-button{
-    width:32px;
-    height:32px;
-}
-
-.stats{
-    background:white;
-    border-radius:15px;
-    padding:15px;
-    margin-bottom:15px;
-}
-
-#listPilihan{
-    background:white;
-    border-radius:15px;
-    padding:15px;
-    margin-top:15px;
-}
-</style>
-</head>
-
-<body>
-
-<div class="header">
-<h1>🍂 YupiStore Food Manager 🍂</h1>
-</div>
-
-<div class="stats">
-<b>Total Food:</b> 2<br>
-<b>Level Tertinggi:</b> 120<br>
-<b>Total Dipilih:</b> <span id="totalDipilih">0</span>
-</div>
-
-<h2>🏭 Bakery</h2>
-
-<div class="card">
-<img src="images/Bread.webp">
-
-<div class="info">
-<div class="name">Bread</div>
-Level 2<br>
-Stock:
-<input class="stock" id="stock_bread" value="200">
-
-<div class="controls">
-<button onclick="ubah('bread',-1)">-</button>
-<span id="bread">0</span>
-<button onclick="ubah('bread',1)">+</button>
-</div>
-
-</div>
-</div>
-
-<div class="card">
-<img src="images/Corn_Bread.webp">
-
-<div class="info">
-<div class="name">Corn Bread</div>
-Level 7<br>
-Stock:
-<input class="stock" id="stock_corn" value="200">
-
-<div class="controls">
-<button onclick="ubah('corn',-1)">-</button>
-<span id="corn">0</span>
-<button onclick="ubah('corn',1)">+</button>
-</div>
-
-</div>
-</div>
-
-<div id="listPilihan">
-<h3>📝 List Pilihan</h3>
-<div id="list"></div>
-</div>
-
-<script>
-
-let data = {
-bread:0,
-corn:0
-};
-
-function ubah(item,nilai){
-
-data[item]+=nilai;
-
-if(data[item]<0){
-data[item]=0;
-}
-
-document.getElementById(item).innerText=data[item];
-
-update();
-}
-
-function update(){
-
-let total=0;
-let hasil=[];
-
-for(let item in data){
-
-total+=data[item];
-
-if(data[item]>0){
-
-let nama=item==="bread"
-? "Bread"
-: "Corn Bread";
-
-hasil.push(nama+" x"+data[item]);
-}
-}
-
-document.getElementById("totalDipilih").innerText=total;
-document.getElementById("list").innerHTML=hasil.join("<br>");
-}
-
-</script>
-
-</body>
-</html>
+];

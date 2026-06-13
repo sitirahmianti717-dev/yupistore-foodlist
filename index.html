@@ -55,9 +55,14 @@ body{
 }
 
 button{
-    width:32px;
-    height:32px;
-}
+    border:none;
+    border-radius:12px;
+    padding:10px 15px;
+    background:#dbe8d3;
+    font-weight:bold;
+    cursor:pointer;
+    margin:4px;
+    }
 
 .stats{
     background:white;
@@ -83,14 +88,14 @@ button{
 
 <div class="stats">
 <b>Total Food:</b> 2<br>
-<b>Level Tertinggi:</b> 104<br>
+<b>Level Tertinggi:</b> 120<br>
 <b>Total Dipilih:</b> <span id="totalDipilih">0</span>
+</div>
 
-<br><br>
-
+<div style="text-align:center; margin-bottom:15px;">
+<button>📋 Food List</button>
 <button>📋 Salin List</button>
 <button>🔄 Reset</button>
-
 </div>
 
 <h2>🏭 Bakery</h2>

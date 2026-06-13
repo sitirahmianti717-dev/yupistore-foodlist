@@ -155,7 +155,7 @@ body{
 </div>
 
 <div class="stats">
-📦 Total Food: 3<br>
+📦 document.getElementById("totalFood").innerText = Object.keys(data).length;
 ⭐ Level Tertinggi: 120<br>
 🛒 Total Dipilih: <span id="totalDipilih">0</span>
 </div>
@@ -401,7 +401,8 @@ bread:0,
 corn:0,
 cookie:0,
 raspberry:0,
-blackberry:0
+blackberry:0,
+pizza:0
 };
 
 function ubah(item,nilai){
@@ -429,11 +430,12 @@ total+=data[item];
 if(data[item]>0){
 
 let nama = {
-    bread:"Bread",
-    corn:"Corn Bread",
-    cookie:"Cookie",
-    raspberry:"Raspberry Muffin",
-    blackberry:"Blackberry Muffin"
+bread:"Bread",
+corn:"Corn Bread",
+cookie:"Cookie",
+raspberry:"Raspberry Muffin",
+blackberry:"Blackberry Muffin",
+pizza:"Pizza"
 }[item];
 
 hasil.push(nama+" x"+data[item]);

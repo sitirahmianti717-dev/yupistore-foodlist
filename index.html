@@ -83,8 +83,21 @@ body{
     background:white;
     border-radius:15px;
     padding:15px;
-    margin-top:15px;
+    margin-bottom:15px;
+
+    position:sticky;
+    top:10px;
+    z-index:999;
+
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
 }
+
+#list{
+    max-height:120px;
+    overflow-y:auto;
+    margin-top:8px;
+}
+    
 .machine{
     display:inline-block;
     background:#f4e8d1;
@@ -150,27 +163,7 @@ body{
 <div style="text-align:center; margin-bottom:15px;">
 <button class="top-btn">📋 Food List</button>
 <button class="top-btn" onclick="salinList()">📋 Salin List</button>
-function salinList(){
-
-let teks =
-document.getElementById("list").innerText;
-
-navigator.clipboard.writeText(teks);
-
-alert("List berhasil disalin!");
-},
 <button class="top-btn" onclick="resetSemua()">🔄 Reset</button>
-function resetSemua(){
-
-for(let item in data){
-
-data[item]=0;
-
-document.getElementById(item).innerText=0;
-}
-
-update();
-}
 
 <h2 style="display:none;">
 🏭 Bakery
@@ -358,6 +351,17 @@ update();
 ...
 
 <script>
+function resetSemua(){
+
+for(let item in data){
+
+data[item]=0;
+
+document.getElementById(item).innerText=0;
+}
+
+update();
+}
 
 let data = {
 bread:0,
@@ -405,6 +409,15 @@ hasil.push(nama+" x"+data[item]);
 
 document.getElementById("totalDipilih").innerText=total;
 document.getElementById("list").innerHTML=hasil.join("<br>");
+}
+function salinList(){
+
+let teks =
+document.getElementById("list").innerText;
+
+navigator.clipboard.writeText(teks);
+
+alert("List berhasil disalin!");
 }
 
 </script>

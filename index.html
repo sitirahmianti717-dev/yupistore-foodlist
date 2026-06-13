@@ -99,7 +99,8 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-top:10px;
+    margin-top:8px;
+    gap:10px;
 }
 
 .stock-row{
@@ -109,14 +110,27 @@ body{
 .controls{
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:6px;
+    background:#f7f3ea;
+    padding:6px 10px;
+    border-radius:12px;
 }
 
 .controls span{
-    font-size:22px;
+    font-size:18px;
     font-weight:bold;
-    min-width:25px;
+    min-width:24px;
     text-align:center;
+}
+
+.controls button{
+    width:auto;
+    height:auto;
+    padding:6px 10px;
+    border:none;
+    border-radius:8px;
+    background:#dbe8d3;
+    font-weight:bold;
 }
 </style>
 </head>
@@ -242,6 +256,72 @@ body{
 
 </div>
 
+<div class="card">
+
+<img src="images/Raspberry_Muffin.webp">
+
+<div class="info">
+
+<div class="name">Raspberry Muffin</div>
+
+<div class="machine">Bakery</div>
+
+<div class="row">
+
+<div class="level">
+⭐ Level 19
+</div>
+
+<div class="controls">
+<button onclick="ubah('raspberry',-10)">-10</button>
+<span id="raspberry">0</span>
+<button onclick="ubah('raspberry',10)">+10</button>
+</div>
+
+</div>
+
+<div class="stock-row">
+📦 Stock:
+<input class="stock" id="stock_raspberry" value="30">
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="images/Blackberry_Muffin.webp">
+
+<div class="info">
+
+<div class="name">Blackberry Muffin</div>
+
+<div class="machine">Bakery</div>
+
+<div class="row">
+
+<div class="level">
+⭐ Level 26
+</div>
+
+<div class="controls">
+<button onclick="ubah('blackberry',-10)">-10</button>
+<span id="blackberry">0</span>
+<button onclick="ubah('blackberry',10)">+10</button>
+</div>
+
+</div>
+
+<div class="stock-row">
+📦 Stock:
+<input class="stock" id="stock_blackberry" value="30">
+</div>
+
+</div>
+
+</div>
+
 <div id="listPilihan">
 <h3>📝 List Pilihan</h3>
 <div id="list"></div>
@@ -252,7 +332,9 @@ body{
 let data = {
 bread:0,
 corn:0,
-cookie:0
+cookie:0,
+raspberry:0,
+blackberry:0
 };
 
 function ubah(item,nilai){
@@ -282,7 +364,9 @@ if(data[item]>0){
 let nama = {
     bread:"Bread",
     corn:"Corn Bread",
-    cookie:"Cookie"
+    cookie:"Cookie",
+    raspberry:"Raspberry Muffin",
+    blackberry:"Blackberry Muffin"
 }[item];
 
 let nama = namaMap[item];

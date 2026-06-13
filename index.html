@@ -149,9 +149,28 @@ body{
 
 <div style="text-align:center; margin-bottom:15px;">
 <button class="top-btn">📋 Food List</button>
-<button class="top-btn">📋 Salin List</button>
-<button class="top-btn">🔄 Reset</button>
-</div>
+<button class="top-btn" onclick="salinList()">📋 Salin List</button>
+function salinList(){
+
+let teks =
+document.getElementById("list").innerText;
+
+navigator.clipboard.writeText(teks);
+
+alert("List berhasil disalin!");
+},
+<button class="top-btn" onclick="resetSemua()">🔄 Reset</button>
+function resetSemua(){
+
+for(let item in data){
+
+data[item]=0;
+
+document.getElementById(item).innerText=0;
+}
+
+update();
+}
 
 <h2 style="display:none;">
 🏭 Bakery
@@ -322,10 +341,21 @@ body{
 
 </div>
 
+<div class="stats">
+...
+</div>
+
 <div id="listPilihan">
 <h3>📝 List Pilihan</h3>
 <div id="list"></div>
 </div>
+
+<button ...>📋 Salin List</button>
+<button ...>🔄 Reset</button>
+
+<!-- Food mulai dari sini -->
+<div class="card">
+...
 
 <script>
 

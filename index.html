@@ -125,18 +125,18 @@ Stock:
 </div>
 
 <div class="card">
-<img src="images/Corn_Bread.webp">
+<img src="images/Cookie.webp">
 
 <div class="info">
-<div class="name">Corn Bread</div>
-Level 7<br>
+<div class="name">Cookie</div>
+Level 10<br>
 Stock:
-<input class="stock" id="stock_corn" value="200">
+<input class="stock" id="stock_cookie" value="200">
 
 <div class="controls">
-<button onclick="ubah('corn',-10)">-10</button>
-<span id="corn">0</span>
-<button onclick="ubah('corn',10)">+10</button>
+<button onclick="ubah('cookie',-10)">-10</button>
+<span id="cookie">0</span>
+<button onclick="ubah('cookie',10)">+10</button>
 </div>
 
 </div>
@@ -151,7 +151,8 @@ Stock:
 
 let data = {
 bread:0,
-corn:0
+corn:0,
+cookie:0
 };
 
 function ubah(item,nilai){
@@ -178,9 +179,13 @@ total+=data[item];
 
 if(data[item]>0){
 
-let nama=item==="bread"
-? "Bread"
-: "Corn Bread";
+let namaMap = {
+bread:"Bread",
+corn:"Corn Bread",
+cookie:"Cookie"
+};
+
+let nama = namaMap[item];
 
 hasil.push(nama+" x"+data[item]);
 }

@@ -209,6 +209,36 @@ body{
     font-size:14px;
     padding:8px 14px;
 }
+
+.stats{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-bottom:12px;
+    background:none;
+    padding:0;
+}
+
+.stat-box{
+    padding:12px;
+    border-radius:12px;
+    font-weight:bold;
+}
+
+.food{
+    background:#dbe8d3;
+    color:#4d684d;
+}
+
+.level{
+    background:#f4e8d1;
+    color:#c77700;
+}
+
+.cart{
+    background:#dce7f8;
+    color:#3566b8;
+}
     
 </style>
 </head>
@@ -220,9 +250,20 @@ body{
 </div>
 
 <div class="stats">
-📦 Total Food: 6<br>
-⭐ Level Tertinggi: 120<br>
-🛒 Total Dipilih: <span id="totalDipilih">0</span>
+
+<div class="stat-box food">
+📦 Total Food: 6
+</div>
+
+<div class="stat-box level">
+⭐ Level Tertinggi: 120
+</div>
+
+<div class="stat-box cart">
+🛒 Total Dipilih:
+<span id="totalDipilih">0</span>
+</div>
+
 </div>
 
 <div id="listPilihan">

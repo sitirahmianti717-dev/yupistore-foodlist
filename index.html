@@ -169,37 +169,24 @@ body{
 🏭 Bakery
 </h2>
 
-<div class="card">
+<div class="food-card">
+  <div class="food-name">🥖 Bread</div>
+  <div class="machine">Bakery</div>
 
-<img src="images/Bread.webp">
+  <div class="level-row">
+    <span class="level">⭐ Level 2</span>
 
-<div class="info">
+    <div class="counter">
+      <button>-10</button>
+      <span>0</span>
+      <button>+10</button>
+    </div>
+  </div>
 
-<div class="name">Bread</div>
-
-<div class="machine">Bakery</div>
-
-<div class="row">
-
-<div class="level">
-⭐ Level 2
-</div>
-
-<div class="controls">
-<button onclick="ubah('bread',-10)">-10</button>
-<span id="bread">0</span>
-<button onclick="ubah('bread',10)">+10</button>
-</div>
-
-</div>
-
-<div class="stock-row">
-📦 Stock:
-<input class="stock" id="stock_bread" value="200">
-</div>
-
-</div>
-
+  <div class="stock">
+    <label>📦 Stock</label>
+    <input type="number" value="200">
+  </div>
 </div>
 
 <div class="card">

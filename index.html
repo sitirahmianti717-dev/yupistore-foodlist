@@ -584,7 +584,16 @@ navigator.clipboard.writeText(teks);
 alert("List berhasil disalin!");
 }
 
-</script>
+function salinList(){
+
+let teks =
+document.getElementById("list").innerText;
+
+navigator.clipboard.writeText(teks);
+
+alert("List berhasil disalin!");
+}
+
 function cariFood(){
 
 let keyword =
@@ -612,6 +621,8 @@ else{
 });
 
 }
+
+</script>
 
 </body>
 </html>

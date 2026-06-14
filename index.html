@@ -287,8 +287,6 @@ body{
 Belum ada food dipilih
 </div>
 
-<div id="list"></div>
-
 <div style="margin-top:12px; text-align:center;">
 
 <button class="top-btn" onclick="salinList()">
@@ -718,7 +716,7 @@ Belum ada food dipilih
 
 <div class="name">Macaroon</div>
 
-<div class="machine">Macaroon</div>
+<div class="machine">Bakery</div>
 
 <div class="row">
 
@@ -743,6 +741,142 @@ Belum ada food dipilih
 
 </div>
 
+<h2 style="margin-top:25px;">
+🧀 Dairy
+</h2>
+
+<div class="card">
+
+<img src="images/Cream.webp">
+
+<div class="info">
+
+<div class="name">Cream</div>
+
+<div class="machine">Dairy</div>
+
+<div class="row">
+
+<div class="level">
+⭐ Level 6
+</div>
+
+<div class="controls">
+<button onclick="ubah('cream',-10)">-10</button>
+<span id="cream">0</span>
+<button onclick="ubah('cream',10)">+10</button>
+</div>
+
+</div>
+
+<div class="stock-row">
+📦 Stock:
+<input class="stock" id="stock_cream" value="500">
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="images/Butter.webp">
+
+<div class="info">
+
+<div class="name">Butter</div>
+
+<div class="machine">Dairy</div>
+
+<div class="row">
+
+<div class="level">
+⭐ Level 9
+</div>
+
+<div class="controls">
+<button onclick="ubah('butter',-10)">-10</button>
+<span id="butter">0</span>
+<button onclick="ubah('butter',10)">+10</button>
+</div>
+
+</div>
+
+<div class="stock-row">
+📦 Stock:
+<input class="stock" id="stock_butter" value="500">
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="images/Cheese.webp">
+
+<div class="info">
+
+<div class="name">Cheese</div>
+
+<div class="machine">Dairy</div>
+
+<div class="row">
+
+<div class="level">
+⭐ Level 12
+</div>
+
+<div class="controls">
+<button onclick="ubah('cheese',-10)">-10</button>
+<span id="cheese">0</span>
+<button onclick="ubah('cheese',10)">+10</button>
+</div>
+
+</div>
+
+<div class="stock-row">
+📦 Stock:
+<input class="stock" id="stock_cheese" value="500">
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="images/Goat_Cheese.webp">
+
+<div class="info">
+
+<div class="name">Goat Cheese</div>
+
+<div class="machine">Dairy</div>
+
+<div class="row">
+
+<div class="level">
+⭐ Level 33
+</div>
+
+<div class="controls">
+<button onclick="ubah('goatcheese',-10)">-10</button>
+<span id="goatcheese">0</span>
+<button onclick="ubah('goatcheese',10)">+10</button>
+</div>
+
+</div>
+
+<div class="stock-row">
+📦 Stock:
+<input class="stock" id="stock_goatcheese" value="500">
+</div>
+
+</div>
+
+</div>
+    
 <script>
 function resetSemua(){
 
@@ -762,7 +896,18 @@ corn:0,
 cookie:0,
 raspberry:0,
 blackberry:0,
-pizza:0
+pizza:0, 
+blueberry:0, 
+spicy:0, 
+potato:0, 
+frutti:0, 
+gingerbread:0, 
+banana:0, 
+macaroon:0, 
+cream:0, 
+butter:0, 
+cheese:0, 
+goatcheese:0, 
 };
 
 function ubah(item,nilai){
@@ -795,7 +940,18 @@ corn:"Corn Bread",
 cookie:"Cookie",
 raspberry:"Raspberry Muffin",
 blackberry:"Blackberry Muffin",
-pizza:"Pizza"
+pizza:"Pizza", 
+blueberry:"Blueberry Muffin", 
+spicy:"Spicy Pizza", 
+potato:"Potato Bread", 
+frutti:"Frutti di Mare Pizza", 
+gingerbread:"Gingerbread Cookie", 
+banana:"Banana Bread", 
+macaroon:"Macaroon", 
+cream:"Cream", 
+butter:"Butter", 
+cheese:"Cheese", 
+goatcheese:"Goatcheese", 
 }[item];
 
 hasil.push(nama+" x"+data[item]);
@@ -805,16 +961,6 @@ hasil.push(nama+" x"+data[item]);
 document.getElementById("totalDipilih").innerText=total;
 document.getElementById("list").innerHTML=hasil.join("<br>");
 }
-function salinList(){
-
-let teks =
-document.getElementById("list").innerText;
-
-navigator.clipboard.writeText(teks);
-
-alert("List berhasil disalin!");
-}
-
 function salinList(){
 
 let teks =

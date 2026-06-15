@@ -283,6 +283,21 @@ h2{
 .card:hover{
     transform:translateY(-2px);
 }
+
+.machine-title{
+    background:#e8dcc3;
+    color:#6b5b3e;
+    padding:10px 16px;
+    border-radius:14px;
+    margin:18px 0 10px;
+    font-size:20px;
+    font-weight:800;
+    display:inline-block;
+    box-shadow:0 3px 8px rgba(0,0,0,0.08);
+    border:2px dashed #c9b58a;
+}
+    
+</style>
     
 </style>
 </head>
@@ -1814,9 +1829,9 @@ mesinSekarang = food.machine;
 
 container.innerHTML += `
 
-<h2>
+<div class="machine-title">
 🏭 ${food.machine}
-</h2>
+</div>
 
 `;
 

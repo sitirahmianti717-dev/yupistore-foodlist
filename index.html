@@ -55,16 +55,14 @@ body{
 }
 
 .stock{
-    width:55px;
-    height:24px;
+    width:45px;
+    height:22px;
     border:1px solid #ddd;
     border-radius:6px;
-    padding:0 5px;
-    font-size:12px;
     text-align:center;
-    background:#f8f4ea;
+    font-size:11px;
+    padding:0;
 }
-
 .controls{
     display:flex;
     align-items:center;
@@ -131,9 +129,9 @@ body{
 .stock-row{
     display:flex;
     align-items:center;
-    gap:6px;
-    margin-top:5px;
-    font-size:13px;
+    gap:4px;
+    margin-top:4px;
+    font-size:12px;
 }
 
 .controls{
@@ -185,8 +183,8 @@ body{
 }
 
 .controls button{
-    width:28px;
-    height:24px;
+    width:40px;
+    height:30px;
     padding:0;
     font-size:11px;
 }
@@ -198,7 +196,7 @@ body{
 }
 
 .stock{
-    width:100%;
+    width:70%;
     height:28px;
     border:1px solid #ddd;
     border-radius:8px;
@@ -284,17 +282,34 @@ h2{
 }
 
 .machine-title{
+    width:100%;
+    box-sizing:border-box;
+
+    text-align:center;
+
     background:#e8dcc3;
     color:#6b5b3e;
-    padding:10px 16px;
-    border-radius:14px;
-    margin:18px 0 10px;
-    font-size:20px;
+
+    padding:8px;
+
+    border-radius:12px;
+
+    margin:12px 0 8px;
+
+    font-size:16px;
     font-weight:800;
-    display:inline-block;
-    box-shadow:0 3px 8px rgba(0,0,0,0.08);
+
     border:2px dashed #c9b58a;
 }
+
+.wa-box{
+    margin-top:10px;
+    display:inline-block;
+    background:white;
+    padding:8px 14px;
+    border-radius:20px;
+    font-weight:bold;
+}    
         
 </style>
 </head>
@@ -308,15 +323,29 @@ h2{
 </div>
 </div>
 
+<div style="
+margin-top:8px;
+padding:6px 12px;
+display:inline-block;
+background:white;
+border-radius:20px;
+font-size:13px;
+font-weight:bold;">
+💬 WA Order: 085188166197
+</div>    
+
+<div class="stat-box food">
+📦 Total Food:
+<span id="totalFood">0</span>
+</div>    
+
 <div class="stat-box level">
-⭐ Level Tertinggi: 120
+⭐ Level Tertinggi: 104
 </div>
 
 <div class="stat-box cart">
 🛒 Total Dipilih:
 <span id="totalDipilih">0</span>
-</div>
-
 </div>
 
 <div id="listPilihan">
@@ -1853,6 +1882,27 @@ else{
 
 }
 
+const machineIcons = {
+"Bakery":"🥖",
+"Dairy":"🥛",
+"Sugar Mill":"🍬",
+"Popcorn Pot":"🍿",
+"BBQ Grill":"🔥",
+"Pie Oven":"🥧",
+"Loom":"🧶",
+"Sewing Machine":"🪡",
+"Cake Oven":"🎂",
+"Juice Press":"🧃",
+"Ice Cream Maker":"🍦",
+"Doner Kebab Stan":"🌯",
+"Jam Maker":"🍓",
+"Jeweler":"💍",
+"Honey Extractor":"🍯",
+"Coffee Kiosk":"☕",
+"Soup Kitchen":"🍲",
+"Candle Maker":"🕯️"
+};    
+
 function renderFoods(){
 
 let container =
@@ -1871,7 +1921,9 @@ mesinSekarang = food.machine;
 container.innerHTML += `
 
 <div class="machine-title">
-🏭 ${food.machine}
+${machineIcons[food.machine] || "🌼"}
+${food.machine}
+${machineIcons[food.machine] || "🌼"}
 </div>
 
 `;

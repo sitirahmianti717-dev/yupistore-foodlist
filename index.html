@@ -39,8 +39,9 @@ body{
 }
 
 .card img{
-    width:35px;
-    height:35px;
+    width:55px;
+    height:55px;
+    object-fit:contain;
 }
 
 .info{
@@ -54,10 +55,12 @@ body{
 }
 
 .stock{
-    width:70px;
-    padding:5px;
+    width:60px;
+    height:25px;
+    padding:3px 8px;
     border-radius:8px;
-    border:1px solid #ccc;
+    border:1px solid #ddd;
+    font-size:13px;
 }
 
 .controls{
@@ -301,9 +304,12 @@ h2{
 
 <div class="stats">
 
-<div class="stat-box food">
-📦 Total Food:
-<span id="totalFood"></span>
+<div class="stock-row">
+
+📦 <span>Stock:</span>
+
+<input class="stock" value="${food.stock}">
+
 </div>
 
 <div class="stat-box level">
@@ -1707,6 +1713,51 @@ machine:"Soup Kitchen",
 level:104,
 stock:30,
 image:"images/Mushroom_Soup.webp"
+},   
+
+{
+id:"strawberrycan",
+name:"Setrawberry Candle",
+machine:"Candle Maker",
+level:48,
+stock:30,
+image:"images/Setrawberry_Candle.webp"
+},
+
+{
+id:"raspberrycan",
+name:"Raspberry Candle",
+machine:"Candle Maker",
+level:52,
+stock:30,
+image:"images/Raspberry_Candle.webp"
+},
+
+{
+id:"lemoncan",
+name:"Lemon Candle",
+machine:"Candle Maker",
+level:72,
+stock:30,
+image:"images/Lemon_Candle.webp"
+},
+
+{
+id:"colorfulcan",
+name:"Colorful Candles",
+machine:"Candle Maker",
+level:84,
+stock:30,
+image:"images/Colorful_Candles.webp"
+},
+
+{
+id:"floralcan",
+name:"Floral Candle",
+machine:"Candle Maker",
+level:95,
+stock:30,
+image:"images/Floral_Candle.webp"
 },    
 ];
     

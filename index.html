@@ -27,7 +27,13 @@ body{
     padding:10px;
     border-radius:15px;
     margin-bottom:10px;
+    background:linear-gradient(
+        135deg,
+        #dbe8d3,
+        #c7ddb8
+    );
 }
+    
 .card{
     background:white;
     border-radius:10px;
@@ -63,6 +69,7 @@ body{
     font-size:11px;
     padding:0;
 }
+    
 .controls{
     display:flex;
     align-items:center;
@@ -185,10 +192,9 @@ body{
 }
 
 .controls button{
-    width:40px;
-    height:30px;
-    padding:0;
-    font-size:11px;
+    width:50px;
+    height:34px;
+    font-weight:800;
 }
 
 .counter span{
@@ -366,7 +372,23 @@ h2{
 .wa-float:hover{
     transform:scale(1.08);
 }    
-    
+
+.stats-wrap{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+}   
+
+.selected{
+    border:2px solid #8dc26f;
+    background:#f5fff0;
+}  
+
+.search-box{
+    position:sticky;
+    top:140px;
+    z-index:998;
+}    
 </style>
 </head>
 
@@ -401,6 +423,14 @@ class="wa-float">
 
 <div id="listPilihan">
 
+<div class="search-box">
+    <input
+        type="text"
+        id="searchFood"
+        placeholder="🔍 Cari food..."
+        onkeyup="cariFood()">
+</div>    
+
 <div id="list">
 📋 Daftar food masih kosong
 </div>
@@ -414,14 +444,8 @@ class="wa-float">
 <button class="top-btn" onclick="resetSemua()">
 🔄 Reset
 </button>
-
-<div class="search-box">
-    <input
-        type="text"
-        id="searchFood"
-        placeholder="🔍 Cari food..."
-        onkeyup="cariFood()">
-</div>
+    
+</div
 
 </div>
 
@@ -2270,14 +2294,9 @@ container.innerHTML += `
 </div>
 
 
-<div class="stock-row">
-
-📦 Stock:
-
-<input class="stock" value="${food.stock}">
-
-</div>
-
+<span class="stock-label">
+📦 ${food.stock}
+</span>
 
 </div>
 

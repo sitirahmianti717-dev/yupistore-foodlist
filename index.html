@@ -1233,7 +1233,7 @@ image:"images/Vanilla_Ice_Cream.webp"
 },
 
 {
-id:cherrypop",
+id:"cherrypop",
 name:"Cherry Popsicle",
 machine:"Ice Cream Maker",
 level:33,
@@ -1329,6 +1329,33 @@ machine:"Ice Cream Maker",
 level:102,
 stock:30,
 image:"images/Coconut_Ice_Cream.webp"
+}, 
+
+{
+id:"lambdoner",
+name:"Lamb Doner wrap",
+machine:"Doner Kebab Stan",
+level:32,
+stock:30,
+image:"images/Lamb_Doner_Wrap.webp"
+},
+
+{
+id:"spicybean",
+name:"Spicy Bean Doner",
+machine:"Doner Kebab Stan",
+level:32,
+stock:30,
+image:"images/Spicy_Bean_Doner.webp"
+},
+
+{
+id:"towerdoner",
+name:"Tower Doner Supreme",
+machine:"Doner Kebab Stan",
+level:58,
+stock:30,
+image:"images/Tower_Doner_Supreme.webp"
 },    
 ];
     
@@ -1349,7 +1376,7 @@ data[item]=0;
 let angka = document.getElementById(item);
 
 if(angka){
-angka.innerText=0;
+angka.innerText=data[item];
 }
 
 update();

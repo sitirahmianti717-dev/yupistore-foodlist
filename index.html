@@ -160,12 +160,6 @@ body{
     color:#333;
 }
 
-.machine{
-    font-size:14px;
-    color:#777;
-    margin-top:-6px;
-}
-
 .level-row{
     display:flex;
     justify-content:space-between;
@@ -199,6 +193,7 @@ body{
 }
 
 .stock input{
+.stock{
     width:100%;
     height:40px;
     border:1px solid #ddd;
@@ -296,9 +291,7 @@ h2{
     box-shadow:0 3px 8px rgba(0,0,0,0.08);
     border:2px dashed #c9b58a;
 }
-    
-</style>
-    
+        
 </style>
 </head>
 
@@ -366,11 +359,17 @@ for(let item in data){
 
 data[item]=0;
 
-document.getElementById(item).innerText=0;
+let el=document.getElementById(item);
+
+if(el){
+    el.innerText=0;
+}
+
 }
 
 update();
-}
+
+    }
 
 const foods = [
 
@@ -1700,7 +1699,7 @@ image:"images/Bell_Pepper_Soup.webp"
 {
 id:"broccolisoup",
 name:"Broccoli Soup",
-machine:"Soup Kotchen",
+machine:"Soup Kitchen",
 level:87,
 stock:30,
 image:"images/Broccoli_Soup.webp"
@@ -1712,7 +1711,7 @@ name:"Mushroom Soup",
 machine:"Soup Kitchen",
 level:104,
 stock:30,
-image:"images/Broccoli_Soup.webp"
+image:"images/Mushroom_Soup.webp"
 },    
 ];
     

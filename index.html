@@ -392,8 +392,6 @@ stock:200,
 image:"images/Cookie.webp"
 },
 
-...semua data yang tadi kamu buat...
-
 {
 id:"fishskewer",
 name:"Fish Skewer",
@@ -426,37 +424,38 @@ update();
 
 function update(){
 
-document.getElementById("totalDipilih").innerText=total;
-
-if(hasil.length===0){
-document.getElementById("list").innerHTML =
-"🧺 Belum ada food dipilih";
-}
-else{
-document.getElementById("list").innerHTML =
-hasil.join("<br>");
-}
-
 let total=0;
 let hasil=[];
 
 for(let item in data){
 
-total+=data[item];
+total += data[item];
 
-if(data[item]>0){
+if(data[item] > 0){
 
-let food =
-foods.find(f => f.id === item);
+let food = foods.find(f => f.id === item);
 
-let nama = food.name;
+hasil.push(food.name+" x"+data[item]);
 
-hasil.push(nama+" x"+data[item]);
-}
 }
 
-document.getElementById("totalDipilih").innerText=total;
-document.getElementById("list").innerHTML=hasil.join("<br>");
+}
+
+document.getElementById("totalDipilih").innerText = total;
+
+
+if(hasil.length === 0){
+
+document.getElementById("list").innerHTML =
+"🧺 Belum ada food dipilih";
+
+}else{
+
+document.getElementById("list").innerHTML =
+hasil.join("<br>");
+
+}
+
 }
 function salinList(){
 
@@ -544,20 +543,12 @@ container.innerHTML += `
 
 });
 
-    }
-
-renderFoods();  
-    
-document.getElementById("totalDipilih").innerText=total;
+}
 
 renderFoods();
 
 document.getElementById("totalFood").innerText =
 foods.length;
-
-function renderFoods(){
-   ...
-}
  
 </script>
 

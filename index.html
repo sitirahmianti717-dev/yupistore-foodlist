@@ -692,7 +692,7 @@ image:"images/Honey_Popcorn.webp"
 },
 
 {
-id:"chocolate",
+id:"chocolatepopcorn",
 name:"Chocolate Popcorn",
 machine:"Popcorn Pot",
 level:44,
@@ -2806,9 +2806,6 @@ navigator.clipboard.writeText(teks)
  alert("Gagal menyalin!");
 });
 
-alert("List berhasil disalin!");
-}
-
 function cariFood(){
 
 let keyword =
@@ -2856,6 +2853,21 @@ const machineIcons = {
 "Coffee Kiosk":"☕",
 "Soup Kitchen":"🍲",
 "Candle Maker":"🕯️"
+"Flower Shop":"💐",
+"Sauce Maker":"🥫",
+"Salad Bar":"🥗",
+"Sandwich Bar":"🥪",
+"Smoothie Mixer":"🍹",
+"Pasta Maker":"🍝",
+"Pasta Kitchen":"🍜",
+"Hat Maker":"👒",
+"Hot Dog Stand":"🌭",
+"Taco Kitchen":"🌮",
+"Omelet Station":"🍳",
+"Sushi Bar":"🍣",
+"Wok Kitchen":"🥘",
+"Essential Oils Lab":"🧪",
+"Donut Maker":"🍩"    
 };    
 
 const waBtn = document.querySelector('.wa-float');
@@ -2994,9 +3006,7 @@ section.innerHTML += `
 
 }
 }
-
-    }
-
+    
 renderFoods();
 
 document.getElementById("totalFood").innerText =

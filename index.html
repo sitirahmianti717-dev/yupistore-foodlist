@@ -1007,8 +1007,8 @@ image:"images/Sweater.webp"
 },
 
 {
-id:"catton",
-name:"Catton Fabric",
+id:"cotton",
+name:"Cotton Fabric",
 machine:"Loom",
 level:18, 
 stock:30,
@@ -1026,7 +1026,7 @@ image:"images/Blue_Woolly_Hat.webp"
 
 {
 id:"bluesweater",
-name:"Blue Sewater",
+name:"Blue Sweater",
 machine:"Loom",
 level:20,
 stock:30,
@@ -1043,7 +1043,7 @@ image:"images/Red_Scarf.webp"
 },
 
 {
-id:"flower",
+id:"flowel",
 name:"FLower Shawl",
 machine:"Loom",
 level:71, 
@@ -1052,8 +1052,8 @@ image:"images/Flower_Shawl.webp"
 },
 
 {
-id:"cattonshirt",
-name:"Catton Shirt",
+id:"cottonshirt",
+name:"Cotton Shirt",
 machine:"Sewing Machine",
 level:19,
 stock:30,
@@ -1395,7 +1395,7 @@ image:"images/Peanut_Butter_Milkshake.webp"
 
 {
 id:"orangesor",
-name:"Orange Sorebet",
+name:"Orange Sorbet",
 machine:"Ice Cream Maker",
 level:78,
 stock:30,
@@ -1881,7 +1881,7 @@ image:"images/Bright_Bouquet.webp"
 
 {
 id:"gracious",
-name:"Gracious Buquet",
+name:"Gracious Bouquet",
 machine:"Flower Shop",
 level:73,
 stock:30,
@@ -1925,8 +1925,8 @@ image:"images/Caramel_Apple.webp"
 },
 
 {
-id:"toffe",
-name:"Toffe",
+id:"toffee",
+name:"Toffee",
 machine:"Candy Machine",
 level:52,
 stock:30,
@@ -2771,9 +2771,14 @@ if(data[item] > 0){
 
 let food = foods.find(f => f.id === item);
 
-hasil.push(food.name+" x"+data[item]);
-
-}
+hasil.push(
+food.name +
+" x" +
+data[item] +
+" (📦" +
+(food.stock * data[item] / 10) +
+")"
+);
 
 }
 

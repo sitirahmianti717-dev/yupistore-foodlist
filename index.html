@@ -421,6 +421,18 @@ document.addEventListener('touchend', function(){
 .search-box{
     margin-bottom:15px;
 }
+
+.machine-content{
+    display:none;
+}
+
+.machine-content.active{
+    display:block;
+}
+
+.machine-title{
+    cursor:pointer;
+}    
 </style>
 </head>
 
@@ -2889,6 +2901,15 @@ const machineIcons = {
 "Candle Maker":"🕯️"
 };    
 
+function toggleMachine(id){
+
+const section =
+document.getElementById(id);
+
+section.classList.toggle("active");
+
+}
+    
 function renderFoods(){
 
 let container =
@@ -2896,26 +2917,44 @@ document.getElementById("foodContainer");
 
 container.innerHTML="";
 
-let mesinSekarang = "";
+const groups = {};
 
-foods.forEach(food=>{
+for(let machine in groups){
 
-if(food.machine !== mesinSekarang){
-
-mesinSekarang = food.machine;
+const machineId =
+machine.replace(/\s+/g,'');
 
 container.innerHTML += `
 
-<div class="machine-title">
-${machineIcons[food.machine] || "🌼"}
-${food.machine}
-${machineIcons[food.machine] || "🌼"}
+<div class="machine-title"
+onclick="toggleMachine('${machineId}')">
+
+${machineIcons[machine] || "🌼"}
+${machine}
+
+</div>
+
+<div
+id="${machineId}"
+class="machine-content">
+
 </div>
 
 `;
 
-}
+const section =
+document.getElementById(machineId);
 
+groups[machine].forEach(food=>{
+
+section.innerHTML += `
+ISI CARD YANG SEKARANG SUDAH ADA
+`;
+
+});
+
+}
+}
 
 container.innerHTML += `
 

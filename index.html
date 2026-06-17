@@ -1043,7 +1043,7 @@ image:"images/Red_Scarf.webp"
 },
 
 {
-id:"flowel",
+id:"flower",
 name:"FLower Shawl",
 machine:"Loom",
 level:71, 
@@ -2760,41 +2760,39 @@ update();
 
 function update(){
 
-let total=0;
-let hasil=[];    
+let total = 0;
+let hasil = [];
 
 for(let item in data){
 
-total += data[item];
+    total += data[item];
 
-if(data[item] > 0){
+    if(data[item] > 0){
 
-let food = foods.find(f => f.id === item);
+        let food = foods.find(f => f.id === item);
 
-hasil.push(
-food.name +
-" x" +
-data[item] +
-" (📦" +
-(food.stock * data[item] / 10) +
-")"
-);
-
+        hasil.push(
+            food.name +
+            " x" +
+            data[item] +
+            " (📦" +
+            (food.stock * data[item] / 10) +
+            ")"
+        );
+    }
 }
 
 document.getElementById("totalDipilih").innerText = total;
 
-
 if(hasil.length === 0){
 
-document.getElementById("list").innerHTML =
-"🧺 Belum ada food dipilih";
+    document.getElementById("list").innerHTML =
+    "🧺 Belum ada food dipilih";
 
 }else{
 
-document.getElementById("list").innerHTML =
-hasil.join("<br>");
-
+    document.getElementById("list").innerHTML =
+    hasil.join("<br>");
 }
 
 }

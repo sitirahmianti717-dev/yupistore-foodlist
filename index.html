@@ -2913,11 +2913,8 @@ function renderFoods(){
 let container =
 document.getElementById("foodContainer");
 
-container.innerHTML="";
-
 const groups = {};
 
-for(let machine in groups){
 foods.forEach(food => {
 
     if(!groups[food.machine]){
@@ -2927,6 +2924,8 @@ foods.forEach(food => {
     groups[food.machine].push(food);
 
 });
+
+for(let machine in groups){
     
 const machineId =
 machine.replace(/\s+/g,'');
@@ -2954,14 +2953,9 @@ document.getElementById(machineId);
 
 groups[machine].forEach(food=>{
 
-section.innerHTML += `
 groups[machine].forEach(food=>{
 
 section.innerHTML += `
-
-<div class="card">
-
-<img src="${food.image}">
 
 <div class="info">
 

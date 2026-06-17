@@ -2790,7 +2790,13 @@ function salinList(){
 let teks =
 document.getElementById("list").innerText;
 
-navigator.clipboard.writeText(teks);
+navigator.clipboard.writeText(teks)
+.then(()=>{
+ alert("List berhasil disalin!");
+})
+.catch(()=>{
+ alert("Gagal menyalin!");
+});
 
 alert("List berhasil disalin!");
 }

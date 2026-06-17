@@ -365,7 +365,48 @@ h2{
 .wa-float:hover{
     transform:scale(1.08);
 }    
+    
+const waBtn = document.querySelector('.wa-float');
 
+let drag = false;
+let startX = 0;
+let startY = 0;
+
+waBtn.addEventListener('touchstart', function(e){
+
+    drag = true;
+
+    startX =
+        e.touches[0].clientX -
+        waBtn.offsetLeft;
+
+    startY =
+        e.touches[0].clientY -
+        waBtn.offsetTop;
+
+});
+
+document.addEventListener('touchmove', function(e){
+
+    if(!drag) return;
+
+    waBtn.style.left =
+        (e.touches[0].clientX - startX) + 'px';
+
+    waBtn.style.top =
+        (e.touches[0].clientY - startY) + 'px';
+
+    waBtn.style.right = 'auto';
+    waBtn.style.bottom = 'auto';
+
+});
+
+document.addEventListener('touchend', function(){
+
+    drag = false;
+
+});
+    
 .stats-wrap{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -378,10 +419,8 @@ h2{
 }  
 
 .search-box{
-    position:sticky;
-    top:140px;
-    z-index:998;
-}    
+    margin-bottom:15px;
+}
 </style>
 </head>
 

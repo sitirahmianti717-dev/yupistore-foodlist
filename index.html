@@ -2983,6 +2983,69 @@ machine:"Preservation Station",
 level:104,
 stock:30,
 image:"images/Guava_Compote.webp"
+},   
+
+{
+id:"teapot",
+name:"Tea Pot",
+machine:"Pottery Studio",
+level:94,
+stock:30,
+image:"images/Tea_Pot.webp"
+},
+
+{
+id:"pottedplan",
+name:"Potted Plant",
+machine:"Pottery Studio",
+level:96,
+stock:30,
+image:"images/Potted_Plant.webp"
+},
+
+{
+id:"claymug",
+name:"Clay Mug",
+machine:"Pottery Studio",
+level:99,
+stock:30,
+image:"images/Clay_Mug.webp"
+},
+
+{
+id:"richfud",
+name:"Rich Fudge",
+machine:"Fudge Shop",
+level:99,
+stock:30,
+image:"images/Rich_Fudge.webp"
+},
+
+{
+id:"mintfudge",
+name:"Mint Fudge",
+machine:"Fudge Shop",
+level:102,
+stock:30,
+image:"images/Mint_Fudge.webp"
+},
+
+{
+id:"chilifud",
+name:"Chili Fudge",
+machine:"Fudge Shop",
+level:104,
+stock:30,
+image:"images/Chili_Fudge.webp"
+},
+
+{
+id:"plainyogurt",
+name:"Plain Yogurt",
+machine:"Yogurt Maker",
+level:103,
+stock:30,
+image:"images/Plain_Yogurt.webp"
 },    
 ];
     
@@ -3023,13 +3086,10 @@ for(let item in data){
         let food = foods.find(f => f.id === item);
 
         hasil.push(
-            food.name +
-            " x" +
-            data[item] +
-            " (📦" +
-            (food.stock * data[item] / 10) +
-            ")"
-        );
+    food.name +
+    " x" +
+    data[item]
+);
     }
 }
 
